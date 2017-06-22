@@ -1,12 +1,22 @@
 
-# docker-registry-cleaner
+# Docker Registry Cleaner
 
 ## Description  
 App to delete images from your docker registry 
 
+### Build
+```
+go get
+go build
+```
+
 ### Docker Build
 The dockerfile in this project uses a multi stage docker build which requires docker >= 17.05 
 
+Docker
+```
+docker build -t docker-registry-cleaner .
+```
 
 ### Example  
 CLI  
