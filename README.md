@@ -2,7 +2,7 @@
 # Docker Registry Cleaner
 
 ## Description  
-App to delete images from your docker registry 
+Simple app to delete images from your private docker registry
 
 ### Build
 ```
