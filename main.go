@@ -100,7 +100,6 @@ func main() {
 			matches := r.FindString(element)
 			if len(matches) != 0 {
 				if matches == element {
-					fmt.Printf("\nversion: %s\n", matches)
 					versionsRaw = append(versionsRaw, matches)
 				}
 			}
@@ -113,27 +112,32 @@ func main() {
 			versions[i] = v
 		}
 
-		// After this, the versions are properly sorted from low to high
-		sort.Sort(version.Collection(versions))
+		// After this, the versions are properly sorted from high to low
+		sort.Sort(sort.Reverse(version.Collection(versions)))
 
 		if c.Bool("dryrun") {
 			fmt.Printf("\nDRY RUN - nothing will be deleted \n")
 		}
 
-		fmt.Printf("\nFound %d images that match, keeping the %d latest versions and deleting the rest \n\n", len(versions), numKeep)
+		fmt.Printf("\nFound %d images that match, keeping the %d latest versions and deleting the rest \n", len(versions), numKeep)
 
 		for i, v := range versions {
+			//fmt.Printf("\nsorted version: %s\n", v)
 			if i >= numKeep {
-				// Get the manifest digest for the image
-				digest, err := hub.ManifestDigest(imageName, v.String())
-				fmt.Printf("Deleting Manifest Digest: %s\n", digest)
+				fmt.Printf("\nDelete version: %s\n", v)
+
 				if !c.Bool("dryrun") {
+					// Get the manifest digest for the image
+					digest, err := hub.ManifestDigest(imageName, v.String())
+					fmt.Printf("Deleting Manifest Digest: %s\n", digest)
 					// delete manifest
 					err = hub.DeleteManifest(imageName, digest)
+					if err != nil {
+						fmt.Printf("%s", err)
+					}
 				}
-				if err != nil {
-					fmt.Printf("%s", err)
-				}
+			} else {
+				fmt.Printf("\nKeep version: %s\n", v)
 			}
 
 		}
