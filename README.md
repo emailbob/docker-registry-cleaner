@@ -11,12 +11,12 @@ The dockerfile in this project uses a multi stage docker build which requires do
 ### Example  
 CLI  
 ```
-docker-registry-cleaner -image development/myapp -keep 3 -imageversion "^1.0.*" --dry-run
+docker-registry-cleaner -url https://<your-registry> -image development/myapp -keep 3 -imageversion "^1.0.*" --dry-run
 ```
 
 Docker
 ```
-docker run -ti -e IMAGE=releases/myapp -e IMAGE_VERSION=".*-TEST" -e DRYRUN=true docker-registry-cleaner
+docker run -ti -e URL=https://<your-registry> -e IMAGE=releases/myapp -e IMAGE_VERSION=".*-TEST" -e DRYRUN=true docker-registry-cleaner
 ```
 
 ## Documentation

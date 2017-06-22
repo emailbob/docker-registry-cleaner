@@ -28,7 +28,6 @@ func main() {
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:   "url",
-			Value:  "https://containers.mgmt.crosschx.com:5000",
 			Usage:  "Registry url",
 			EnvVar: "URL",
 		},
@@ -77,6 +76,10 @@ func main() {
 		imageName := c.String("image")
 		regxVersion := c.String("imageversion")
 		numKeep := c.Int("keep")
+
+		if r.URL == "" {
+			return cli.ShowAppHelp(c)
+		}
 
 		if imageName == "" {
 			return cli.ShowAppHelp(c)
