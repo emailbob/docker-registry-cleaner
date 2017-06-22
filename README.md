@@ -10,12 +10,26 @@ go get
 go build
 ```
 
+Linux
+```
+CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo .
+```
+
 ### Docker Build
-The dockerfile in this project uses a multi stage docker build which requires docker >= 17.05 
+
 
 Docker
 ```
 docker build -t docker-registry-cleaner .
+
+```
+
+or 
+
+The Dockerfile.build in this project uses a multi stage docker build which requires docker >= 17.05 
+
+```
+docker build -t docker-registry-cleaner -f Dockerfile.build .
 ```
 
 ### Example  
