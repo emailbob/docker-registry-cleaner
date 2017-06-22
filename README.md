@@ -36,7 +36,7 @@ Simple app that hits the docker registry api to delete images.  This is usefully
 Available command line optoins  
 
 ```
-   --url value                       Registry url (default: "https://containers.mgmt.crosschx.com:5000") [$URL]
+   --url value                       Registry url [$URL]
    --username value, -u value        Registry username (optional) [$USERNAME]
    --password value, -p value        Registry password (optional) [$PASSWORD]
    --image value, -i value           Image name to delete ie 'development/nginx' [$IMAGE]
