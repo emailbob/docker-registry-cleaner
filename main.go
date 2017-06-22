@@ -120,7 +120,7 @@ func main() {
 			fmt.Printf("\nDRY RUN - nothing will be deleted \n")
 		}
 
-		fmt.Printf("\nFound %d images that match, keeping the %d latest versions and deleting the rest\n", len(versions), numKeep)
+		fmt.Printf("\nFound %d images that match, keeping the %d latest versions and deleting the rest \n\n", len(versions), numKeep)
 
 		for i, v := range versions {
 			if i >= numKeep {
