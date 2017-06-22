@@ -129,7 +129,7 @@ func main() {
 				fmt.Printf("Deleting Manifest Digest: %s\n", digest)
 				if !c.Bool("dryrun") {
 					// delete manifest
-					//err = hub.DeleteManifest(imageName, digest)
+					err = hub.DeleteManifest(imageName, digest)
 				}
 				if err != nil {
 					fmt.Printf("%s", err)
