@@ -40,7 +40,7 @@ docker-registry-cleaner --url https://<your-registry> --image development/myapp 
 
 Docker
 ```
-docker run -ti -e URL=https://<your-registry> -e IMAGE=releases/myapp -e IMAGE_VERSION=".*-TEST" -e DRYRUN=true docker-registry-cleaner
+docker run -ti -e URL=https://<your-registry> -e IMAGE=releases/myapp -e IMAGE_VERSION=".*-TEST" -e DRYRUN=true thefoo/docker-registry-cleaner:latest
 ```
 
 ## Documentation
