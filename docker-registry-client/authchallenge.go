@@ -116,7 +116,8 @@ func expectToken(s string) (token, rest string) {
 
 func expectTokenOrQuoted(s string) (value string, rest string) {
 	if !strings.HasPrefix(s, "\"") {
-		return expectToken(s)
+		token, s := expectToken(s)
+		return token, s
 	}
 	s = s[1:]
 	for i := 0; i < len(s); i++ {

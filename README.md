@@ -35,7 +35,7 @@ docker build -t docker-registry-cleaner -f Dockerfile.build .
 ### Example  
 CLI  
 ```
-docker-registry-cleaner -url https://<your-registry> -image development/myapp -keep 3 -imageversion "^1.0.*" --dry-run
+docker-registry-cleaner --url https://<your-registry> --image development/myapp --keep 3 --imageversion "^1.0.*" --dry-run
 ```
 
 Docker
